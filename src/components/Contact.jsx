@@ -23,7 +23,7 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email & Web',
-      details: ['info@com-tecuganda.com', 'com-tecuganda.com']
+      details: ['pirwoth.dev@gmail.com', 'pirwoth.dev@gmail.com']
     },
     {
       icon: <Clock className="w-6 h-6" />,
