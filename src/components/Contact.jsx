@@ -175,7 +175,7 @@ const Contact = () => {
             </motion.a>
             
             <motion.a
-              href="mailto:info@com-tecuganda.com"
+              href="mailto:pirwoth.dev@gmail.com'"
               className="inline-flex items-center px-8 py-4 border-2 border-navy-600 text-navy-600 rounded-lg font-semibold hover:bg-navy-600 hover:text-white transition-all duration-300"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
