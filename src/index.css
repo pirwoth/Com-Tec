@@ -10,6 +10,13 @@
   body {
     @apply bg-slate-50 text-slate-900;
   }
+  
+  /* Add top padding for mobile to prevent navbar overlap */
+  @media (max-width: 767px) {
+    #home, #services, #projects, #about, #contact {
+      padding-top: 4.5rem;
+    }
+  }
 }
 
 @layer components {
@@ -26,7 +33,7 @@
   }
   
   .section-padding {
-    @apply py-20 lg:py-32;
+    @apply py-12 sm:py-20 lg:py-32;
   }
 }
 
@@ -45,4 +52,16 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-navy-600;
+}
+
+/* Responsive utility for images and iframes */
+img, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
 }

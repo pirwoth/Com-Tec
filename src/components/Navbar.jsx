@@ -48,21 +48,22 @@ const Navbar = () => {
     <>
       {/* Main Navbar */}
       <motion.nav
-        className={`fixed top-4 left-0 right-0 w-full z-50 transition-all duration-300 flex justify-center pointer-events-none`}
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.8 }}
+        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 flex justify-center pointer-events-none`}
+        initial={false}
+        animate={{ y: scrolled ? 0 : 0 }}
+        transition={{ type: 'spring', stiffness: 120, damping: 18 }}
       >
         <div
-          className={`pointer-events-auto max-w-7xl w-[99vw] sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw] rounded-2xl shadow-xl bg-white/90 glass-effect border border-slate-200 ${
-            scrolled ? 'py-4' : 'py-6'
-          } px-4 sm:px-6 lg:px-8 flex items-center`}
+          className={`pointer-events-auto max-w-7xl w-full sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw] rounded-b-2xl shadow-xl bg-white/90 glass-effect border border-slate-200 ${
+            scrolled ? 'py-2' : 'py-3'
+          } px-2 sm:px-4 lg:px-8 flex items-center`}
         >
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
             <motion.div 
-              className="flex-shrink-0"
+              className="flex-shrink-0 cursor-pointer"
               whileHover={{ scale: 1.05 }}
+              onClick={() => window.location.href = '/'}
             >
               <h1 className="text-2xl lg:text-3xl font-serif font-bold gradient-text">
                 COM-TEC
@@ -74,7 +75,7 @@ const Navbar = () => {
 
             {/* Desktop Navigation */}
             <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-8">
+              <div className="ml-4 sm:ml-10 flex items-baseline space-x-4 sm:space-x-8">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.name}
@@ -94,7 +95,7 @@ const Navbar = () => {
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-slate-700 hover:text-navy-600 p-2"
+                className="text-slate-700 hover:text-navy-600 p-2 focus:outline-none focus:ring-2 focus:ring-navy-400 rounded"
                 aria-label="Toggle menu"
               >
                 <motion.div
@@ -113,18 +114,19 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden glass-effect mt-2 mx-16 rounded-lg absolute left-1/2 -translate-x-1/2 top-full w-[99vw] sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw]"
-              initial={{ opacity: 0, y: -20 }}
+              className="pointer-events-auto md:hidden glass-effect mt-2 fixed left-0 top-[100%] w-full z-50 rounded-b-lg"
+              style={{ maxWidth: '100vw', minWidth: '100vw' }}
+              initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, type: 'spring', bounce: 0.2 }}
+              exit={{ opacity: 0, y: 60 }}
+              transition={{ duration: 0.7, type: 'spring', bounce: 0.12 }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1">
+              <div className="px-2 pt-2 pb-3 space-y-1 w-full">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-slate-700 hover:text-navy-600 block px-3 py-2 text-base font-medium transition-colors duration-200"
+                    className="text-slate-700 hover:text-navy-600 block px-3 py-2 text-base font-medium transition-colors duration-200 rounded w-full"
                     onClick={e => handleNavClick(e, item.href)}
                     whileHover={{ y: -2 }}
                   >
