@@ -32,10 +32,27 @@ const Navbar = () => {
         const id = href.replace('/#', '').replace('#', '');
         const el = document.getElementById(id);
         if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
+          // Custom smooth scroll with slower duration
+          const y = el.getBoundingClientRect().top + window.pageYOffset;
+          const startY = window.scrollY;
+          const distance = y - startY;
+          const duration = 900; // ms, slower than default
+          let start;
+          function step(timestamp) {
+            if (!start) start = timestamp;
+            const progress = Math.min((timestamp - start) / duration, 1);
+            window.scrollTo(0, startY + distance * easeInOutQuad(progress));
+            if (progress < 1) {
+              window.requestAnimationFrame(step);
+            }
+          }
+          function easeInOutQuad(t) {
+            return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          }
+          window.requestAnimationFrame(step);
         } else {
           // fallback: go to the hash if not found (for page reload)
-          window.location.href = href;
+          window.location.hash = id;
         }
       }, 350);
     } else {
@@ -115,21 +132,24 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden glass-effect mt-2 fixed left-0 top-[100%] w-full z-50 flex flex-col items-stretch"
-              style={{ maxWidth: '100vw', minWidth: '100vw', borderRadius: '0 0 1rem 1rem', background: 'rgba(255,255,255,0.97)' }}
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 60 }}
-              transition={{ duration: 0.7, type: 'spring', bounce: 0.12 }}
+              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end border border-slate-200 bg-white/90"
+              style={{ borderRadius: '0 0 1rem 1rem', boxShadow: '0 8px 32px 0 rgba(30,64,175,0.10), 0 2px 8px 0 rgba(30,64,175,0.08)' }}
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: 100 }}
+              transition={{ duration: 0.5, type: 'spring', bounce: 0.18 }}
             >
-              <nav className="flex flex-col w-full px-2 pt-2 pb-3 space-y-1">
-                {navItems.map((item) => (
+              <nav className="flex flex-col space-y-2 items-end py-2 px-2 w-full"
+                style={{ borderRadius: '0 0 1rem 1rem' }}>
+                {navItems.map((item, idx) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-slate-700 hover:text-navy-600 px-3 py-3 text-base font-medium transition-colors duration-200 rounded w-full text-left bg-transparent"
+                    className="text-slate-700 hover:text-navy-600 px-5 py-3 text-lg font-semibold transition-all duration-300 rounded-xl bg-white/60 hover:bg-navy-100/60 shadow-md hover:shadow-xl backdrop-blur-lg mb-1 text-right"
+                    style={{ minWidth: '10rem', maxWidth: '14rem', background: 'rgba(255,255,255,0.7)' }}
                     onClick={e => handleNavClick(e, item.href)}
-                    whileHover={{ y: -2 }}
+                    whileHover={{ scale: 1.07, x: 0, backgroundColor: 'rgba(30, 64, 175, 0.10)', boxShadow: '0 8px 32px rgba(30,64,175,0.10)' }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 18 }}
                   >
                     {item.name}
                   </motion.a>

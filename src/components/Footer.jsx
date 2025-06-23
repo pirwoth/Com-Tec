@@ -161,18 +161,10 @@ const Footer = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="border-t border-navy-700 py-6 sm:py-8"
           >
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-              <p className="text-navy-300 text-xs sm:text-sm text-center md:text-left">
-                © 2024 COM-TEC (U) LTD. All rights reserved. | Premium Electronic Communication Solutions
+            <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0">
+              <p className="text-navy-300 text-xs sm:text-sm text-center">
+                © 2024 COM-TEC (U) LTD. All rights reserved. | Developed By Pirwoth Samuel & Mukisa Emmanuel
               </p>
-              
-              <div className="flex items-center space-x-2 sm:space-x-6 text-navy-300 text-xs sm:text-sm">
-                <span>East African Region</span>
-                <span>•</span>
-                <span>Since 2000</span>
-                <span>•</span>
-                <span>ISO Certified</span>
-              </div>
             </div>
           </motion.div>
         </div>

@@ -127,7 +127,7 @@ const Projects = () => {
                   className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift group relative overflow-hidden"
                 >
                   {project.featured && (
-                    <div className="absolute top-2 sm:top-4 right-2 sm:right-4">
+                    <div className="absolute top-16 sm:top-10 right-12 sm:right-4 z-12">
                       <Star className="w-5 h-5 text-gold-500 fill-current" />
                     </div>
                   )}

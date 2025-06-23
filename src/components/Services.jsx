@@ -68,13 +68,13 @@ const Services = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: 'spring', bounce: 0.18 }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center justify-center">
           <motion.div
             ref={ref}
             initial={{ opacity: 0, y: 50 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="text-center mb-10 sm:mb-20"
+            className="text-center mb-10 sm:mb-20 flex flex-col items-center"
           >
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold gradient-text mb-4 sm:mb-6">
               Our Premium Services
@@ -85,28 +85,28 @@ const Services = () => {
           </motion.div>
 
           {/* Services Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10 sm:mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-10 sm:mb-20 items-center justify-center">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group relative"
+                className="group relative flex flex-col items-center text-center"
               >
-                <div className="glass-effect p-4 sm:p-8 rounded-3xl hover-lift h-full">
+                <div className="glass-effect p-4 sm:p-8 rounded-3xl hover-lift h-full flex flex-col items-center text-center">
                   {/* Icon with gradient background */}
-                  <div className={`w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-r ${service.color} p-3 sm:p-4 mb-4 sm:mb-6 text-white group-hover:scale-110 transition-transform duration-300`}>
+                  <div className={`w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-r ${service.color} p-3 sm:p-4 mb-4 sm:mb-6 text-white group-hover:scale-110 transition-transform duration-300 flex items-center justify-center mx-auto`}>
                     {service.icon}
                   </div>
                   
                   <h3 className="text-lg sm:text-2xl font-bold text-slate-800 mb-2 sm:mb-4">{service.title}</h3>
                   <p className="text-xs sm:text-base text-slate-600 mb-4 sm:mb-6 leading-relaxed">{service.description}</p>
                   
-                  <ul className="space-y-2 sm:space-y-3">
+                  <ul className="space-y-2 sm:space-y-3 flex flex-col items-center w-fit mx-auto">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-xs sm:text-sm text-slate-600">
-                        <div className="w-2 h-2 bg-navy-400 rounded-full mr-2 sm:mr-3"></div>
+                      <li key={idx} className="flex items-center justify-start w-full text-xs sm:text-sm text-slate-600">
+                        <div className="w-2 h-2 bg-navy-400 rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
                     ))}
