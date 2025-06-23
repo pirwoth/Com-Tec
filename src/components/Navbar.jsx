@@ -48,15 +48,16 @@ const Navbar = () => {
     <>
       {/* Main Navbar */}
       <motion.nav
-        className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 flex justify-center pointer-events-none`}
+        className={`sticky top-0 left-0 right-0 w-full z-50 transition-all duration-300 flex justify-center pointer-events-none`}
         initial={false}
         animate={{ y: scrolled ? 0 : 0 }}
         transition={{ type: 'spring', stiffness: 120, damping: 18 }}
       >
         <div
-          className={`pointer-events-auto max-w-7xl w-full sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw] rounded-b-2xl shadow-xl bg-white/90 glass-effect border border-slate-200 ${
+          className={`pointer-events-auto max-w-7xl w-full sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
             scrolled ? 'py-2' : 'py-3'
           } px-2 sm:px-4 lg:px-8 flex items-center`}
+          style={{ borderRadius: '0 0 1rem 1rem' }}
         >
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
@@ -114,26 +115,26 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden glass-effect mt-2 fixed left-0 top-[100%] w-full z-50 rounded-b-lg"
-              style={{ maxWidth: '100vw', minWidth: '100vw' }}
+              className="pointer-events-auto md:hidden glass-effect mt-2 fixed left-0 top-[100%] w-full z-50 flex flex-col items-stretch"
+              style={{ maxWidth: '100vw', minWidth: '100vw', borderRadius: '0 0 1rem 1rem', background: 'rgba(255,255,255,0.97)' }}
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 60 }}
               transition={{ duration: 0.7, type: 'spring', bounce: 0.12 }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 w-full">
+              <nav className="flex flex-col w-full px-2 pt-2 pb-3 space-y-1">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-slate-700 hover:text-navy-600 block px-3 py-2 text-base font-medium transition-colors duration-200 rounded w-full"
+                    className="text-slate-700 hover:text-navy-600 px-3 py-3 text-base font-medium transition-colors duration-200 rounded w-full text-left bg-transparent"
                     onClick={e => handleNavClick(e, item.href)}
                     whileHover={{ y: -2 }}
                   >
                     {item.name}
                   </motion.a>
                 ))}
-              </div>
+              </nav>
             </motion.div>
           )}
         </AnimatePresence>
