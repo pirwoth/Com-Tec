@@ -133,11 +133,11 @@ const Hero = () => {
 
               {/* Right Content - Features Grid */}
               <motion.div
-              //   initial={{ opacity: 0, y: 80 }}
-              //   animate={{ opacity: 1, y: 0 }}
-              //   transition={{ duration: 2.2, type: 'spring', bounce: 0.12 }}
-              //   className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-center justify-start sm:justify-center w-full px-2"
-              // >
+                initial={{ opacity: 0, y: 80 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 2.2, type: 'spring', bounce: 0.12 }}
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-center justify-start sm:justify-center w-full px-2"
+              >
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
@@ -146,7 +146,7 @@ const Hero = () => {
                     transition={{ delay: 0.6 + index * 0.1 }}
                     className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift group mb-4 sm:mb-0 flex flex-col items-center text-center w-full"
                     whileHover={{ scale: 1.02 }}
-                  >
+                 >
                     <div className="text-navy-600 mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
                       {feature.icon}
                     </div>
