@@ -27,7 +27,7 @@ const Footer = () => {
   ]
 
   return (
-    <footer className="bg-gradient-to-br from-navy-900 to-navy-800 text-white">
+    <footer className="bg-gradient-to-br from-navy-800 via-navy-900 to-slate-900 text-white">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -54,13 +54,13 @@ const Footer = () => {
                 </div>
                 
                 <p className="text-navy-200 leading-relaxed mb-4 sm:mb-6 text-xs sm:text-sm">
-                  East Africa's premier provider of electronic communication solutions, 
+                  Uganda's premier provider of electronic communication solutions, 
                   serving clients with excellence since the millennium.
                 </p>
                 
                 <div className="flex items-center space-x-1 sm:space-x-2 mb-2 sm:mb-4">
                   <Award className="w-5 h-5 text-gold-400" />
-                  <span className="text-navy-200 text-xs sm:text-sm">95+ Years Combined Experience</span>
+                  <span className="text-navy-200 text-xs sm:text-sm">27+ Years Combined Experience</span>
                 </div>
                 <div className="flex items-center space-x-1 sm:space-x-2">
                   <Star className="w-5 h-5 text-gold-400 fill-current" />

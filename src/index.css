@@ -8,7 +8,9 @@
   }
   
   body {
-    @apply bg-slate-50 text-slate-900;
+    /* Diagonal gradient: light (top left) to dark (bottom right) */
+    background: linear-gradient(135deg, #e5e7eb 0%, #677592 100%);
+    color: #677592; /* text-slate-900 */
     overflow-x: hidden;
     width: 100vw;
     max-width: 100vw;

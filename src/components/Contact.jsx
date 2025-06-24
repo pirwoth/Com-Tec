@@ -35,7 +35,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-slate-50 to-navy-50">
+    <section id="contact" className="section-padding bg-gradient-to-br">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}

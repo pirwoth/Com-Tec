@@ -92,7 +92,7 @@ const Navbar = () => {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:block">
+            <div className="hidden md:flex items-center">
               <div className="ml-4 sm:ml-10 flex items-baseline space-x-4 sm:space-x-8">
                 {navItems.map((item) => (
                   <motion.a
@@ -107,6 +107,7 @@ const Navbar = () => {
                   </motion.a>
                 ))}
               </div>
+              {/* Removed dark mode toggle for desktop */}
             </div>
 
             {/* Mobile menu button */}
@@ -132,8 +133,8 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end border border-slate-200 bg-white/90"
-              style={{ borderRadius: '0 0 1rem 1rem', boxShadow: '0 8px 32px 0 rgba(30,64,175,0.10), 0 2px 8px 0 rgba(30,64,175,0.08)' }}
+              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end"
+              style={{ borderRadius: '0 0 1rem 1rem' }}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
@@ -145,10 +146,10 @@ const Navbar = () => {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="text-slate-700 hover:text-navy-600 px-5 py-3 text-lg font-semibold transition-all duration-300 rounded-xl bg-white/60 hover:bg-navy-100/60 shadow-md hover:shadow-xl backdrop-blur-lg mb-1 text-right"
-                    style={{ minWidth: '10rem', maxWidth: '14rem', background: 'rgba(255,255,255,0.7)' }}
+                    className="bg-white text-navy-700 hover:bg-navy-50 hover:text-navy-900 px-5 py-3 text-lg font-semibold transition-all duration-300 rounded-2xl shadow-md mb-1 text-right border border-slate-200"
+                    style={{ minWidth: '10rem', maxWidth: '14rem', boxShadow: '0 4px 16px rgba(30,41,59,0.07)' }}
                     onClick={e => handleNavClick(e, item.href)}
-                    whileHover={{ scale: 1.07, x: 0, backgroundColor: 'rgba(30, 64, 175, 0.10)', boxShadow: '0 8px 32px rgba(30,64,175,0.10)' }}
+                    whileHover={{ scale: 1.07, x: 0 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 18 }}
                   >
                     {item.name}

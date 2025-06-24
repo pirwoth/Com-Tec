@@ -13,7 +13,7 @@ const About = () => {
     {
       icon: <Users className="w-8 h-8" />,
       title: 'Expert Team',
-      description: '15 senior technicians with 95+ years combined experience from leading institutions'
+      description: '15 senior technicians with 27+ years combined experience from leading institutions'
     },
     {
       icon: <Target className="w-8 h-8" />,
@@ -37,7 +37,7 @@ const About = () => {
       icon: <Zap className="w-12 h-12" />,
       title: 'Technical Excellence',
       description: 'Handling complicated technical cases in Voice, Data networks, CCTV, Alarm systems, and Two-Way radio systems',
-      stats: '95+ Years Experience'
+      stats: '27+ Years Experience'
     },
     {
       icon: <Shield className="w-12 h-12" />,
@@ -54,7 +54,7 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="section-padding bg-gradient-to-br from-navy-50 to-white">
+    <section id="about" className="section-padding bg-gradient-to-br">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}

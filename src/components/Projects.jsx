@@ -70,7 +70,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="section-padding bg-gradient-to-br from-white to-slate-50">
+    <section id="projects" className="section-padding bg-gradient-to-br">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
