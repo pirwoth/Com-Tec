@@ -41,7 +41,7 @@ const Hero = () => {
         <div className="absolute top-40 right-10 w-72 h-72 bg-gold-100 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '2s' }}></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-navy-200 rounded-full mix-blend-multiply filter blur-xl opacity-30 animate-float" style={{ animationDelay: '4s' }}></div>
 
-        <div className="relative max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 py-10 sm:py-20 flex flex-col items-center justify-center">
+        <div className="relative max-w-7xl mx-auto sm:px-4 lg:px-8 py-10 sm:py-20 flex flex-col items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,18 +133,18 @@ const Hero = () => {
 
               {/* Right Content - Features Grid */}
               <motion.div
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 2.2, type: 'spring', bounce: 0.12 }}
-                className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-center justify-center"
-              >
+              //   initial={{ opacity: 0, y: 80 }}
+              //   animate={{ opacity: 1, y: 0 }}
+              //   transition={{ duration: 2.2, type: 'spring', bounce: 0.12 }}
+              //   className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 items-center justify-start sm:justify-center w-full px-2"
+              // >
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
-                    className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift group mb-4 sm:mb-0 flex flex-col items-center text-center"
+                    className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift group mb-4 sm:mb-0 flex flex-col items-center text-center w-full"
                     whileHover={{ scale: 1.02 }}
                   >
                     <div className="text-navy-600 mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
