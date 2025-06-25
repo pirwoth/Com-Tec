@@ -20,12 +20,12 @@ const Contact = () => {
     {
       icon: <Phone className="w-6 h-6" />,
       title: 'Phone Numbers',
-      details: ['Tel: +256 414-251238', 'Mobile: +256 776-251238', 'Mobile: +256 706-251238', 'Mobile: +256 756-251238']
+      details: ['Tel: +256 200 990 198']
     },
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email & Web',
-      details: ['pirwoth.dev@gmail.com', 'pirwoth.dev@gmail.com']
+      details: ['comtecuganda@gmail.com',]
     },
     {
       icon: <Clock className="w-6 h-6" />,
@@ -65,27 +65,26 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col justify-center"
             >
-              <div className="glass-effect p-4 sm:p-8 rounded-3xl h-full flex flex-col justify-center">
+              <div className="glass-effect p-4 sm:p-8 rounded-3xl h-full flex flex-col justify-center items-center text-center">
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-800 mb-4 sm:mb-8">
                   Contact Information
                 </h3>
-                
-                <div className="grid gap-4 sm:gap-6">
+                <div className="grid gap-4 sm:gap-6 w-full">
                   {contactInfo.map((info, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 20 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      className="flex items-start space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white card rounded-2xl hover-lift"
+                      className="flex flex-col items-center space-y-2 sm:space-y-3 p-2 sm:p-4 bg-white card rounded-2xl hover-lift text-center"
                     >
-                      <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-navy-100 rounded-xl flex items-center justify-center text-navy-600">
+                      <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-navy-100 rounded-xl flex items-center justify-center text-navy-600 mx-auto">
                         {info.icon}
                       </div>
-                      <div>
-                        <h4 className="font-bold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base px-1">{info.title}</h4>
+                      <h4 className="font-bold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base px-1 w-full text-center">{info.title}</h4>
+                      <div className="flex flex-col items-center w-full">
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-xs sm:text-sm text-slate-600 leading-loose px-3 sm:px-4">
+                          <p key={idx} className="text-xs sm:text-sm text-slate-600 leading-loose px-3 sm:px-4 text-center w-full">
                             {detail}
                           </p>
                         ))}

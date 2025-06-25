@@ -49,7 +49,7 @@ function App() {
         <Footer />
         {/* Sticky WhatsApp Button */}
         <a
-          href="https://wa.me/256776251238"
+          href="https://wa.me/256702069442"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="Chat on WhatsApp"

@@ -84,7 +84,7 @@ const Hero = () => {
                     transition={{ delay: 0.6 }}
                     className="text-base sm:text-xl text-slate-600 leading-relaxed max-w-xs sm:max-w-lg mx-auto"
                   >
-                    Transforming businesses across East Africa with cutting-edge communication, 
+                    Transforming businesses across Uganda with cutting-edge communication, 
                     security, and data solutions. Trusted by government offices, hotels, hospitals, and leading institutions.
                   </motion.p>
                 </div>

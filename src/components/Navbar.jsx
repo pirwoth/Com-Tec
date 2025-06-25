@@ -71,13 +71,14 @@ const Navbar = () => {
         transition={{ type: 'spring', stiffness: 120, damping: 18 }}
       >
         <div
-          className={`pointer-events-auto max-w-7xl w-full sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
+          className={`pointer-events-auto mx-auto sm:max-w-6xl sm:w-[90vw] md:w-[85vw] lg:w-[75vw] xl:w-[65vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
             scrolled ? 'py-2' : 'py-3'
-          } px-2 sm:px-4 lg:px-8 flex items-center rounded-b-2xl rounded-t-none`}
+          } px-4 sm:px-6 lg:px-8 flex items-center rounded-b-2xl rounded-t-none`}
         >
-          <div className="flex justify-between items-center w-full">
-            {/* Logo */}
-            <motion.div 
+          {/* Flex row: logo (left), nav (center), menu (right) */}
+          <div className="w-full flex items-center justify-between">
+            {/* Logo: always left */}
+            <motion.div
               className="flex-shrink-0 cursor-pointer"
               whileHover={{ scale: 1.05 }}
               onClick={() => window.location.href = '/'}
@@ -89,10 +90,9 @@ const Navbar = () => {
                 UGANDA LIMITED
               </p>
             </motion.div>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center">
-              <div className="ml-4 sm:ml-10 flex items-baseline space-x-4 sm:space-x-8">
+            {/* Desktop Navigation (centered on desktop only) */}
+            <div className="hidden md:flex flex-1 justify-center">
+              <div className="flex items-baseline space-x-4 sm:space-x-8">
                 {navItems.map((item) => (
                   <motion.a
                     key={item.name}
@@ -106,10 +106,8 @@ const Navbar = () => {
                   </motion.a>
                 ))}
               </div>
-              {/* Removed dark mode toggle for desktop */}
             </div>
-
-            {/* Mobile menu button */}
+            {/* Mobile menu button (right end on mobile only) */}
             <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -125,6 +123,8 @@ const Navbar = () => {
                 </motion.div>
               </button>
             </div>
+            {/* Empty div for desktop right side symmetry */}
+            <div className="hidden md:block w-12"></div>
           </div>
         </div>
         {/* Mobile Navigation */}
@@ -132,15 +132,15 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden fixed right-0 left-0 top-20 z-[9999] flex flex-col items-end"
-              style={{ borderRadius: '0 0 1rem 1rem' }}
+              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end"
+              style={{ borderRadius: '0 0 1rem 1rem', ...(window.innerWidth <= 640 ? { borderTopLeftRadius: 0, borderTopRightRadius: 0 } : {}) }}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.5, type: 'spring', bounce: 0.18 }}
             >
               <nav className="flex flex-col space-y-2 items-end py-2 px-2 w-full"
-                style={{ borderRadius: '0 0 1rem 1rem' }}>
+                style={{ borderRadius: '0 0 1rem 1rem', ...(window.innerWidth <= 640 ? { borderTopLeftRadius: 0, borderTopRightRadius: 0 } : {}) }}>
                 {navItems.map((item, idx) => (
                   <motion.a
                     key={item.name}
