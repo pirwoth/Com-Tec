@@ -52,7 +52,7 @@ const Contact = () => {
             <h2 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold gradient-text mb-4 sm:mb-6">
               Get In Touch
             </h2>
-            <p className="text-base sm:text-xl text-slate-600 max-w-2xl sm:max-w-3xl mx-auto leading-relaxed px-2">
+            <p className="text-base sm:text-xl text-slate-600 max-w-2xl sm:max-w-3xl mx-auto leading-loose px-4 sm:px-6">
               Ready to transform your communication infrastructure? Contact East Africa's leading experts today
             </p>
           </motion.div>
@@ -77,7 +77,7 @@ const Contact = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      className="flex items-start space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white rounded-2xl hover-lift"
+                      className="flex items-start space-x-3 sm:space-x-4 p-2 sm:p-4 bg-white card rounded-2xl hover-lift"
                     >
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-navy-100 rounded-xl flex items-center justify-center text-navy-600">
                         {info.icon}
@@ -85,7 +85,7 @@ const Contact = () => {
                       <div>
                         <h4 className="font-bold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base px-1">{info.title}</h4>
                         {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-xs sm:text-sm text-slate-600 leading-relaxed px-1">
+                          <p key={idx} className="text-xs sm:text-sm text-slate-600 leading-loose px-3 sm:px-4">
                             {detail}
                           </p>
                         ))}
@@ -103,12 +103,12 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="glass-effect p-6 sm:p-12 rounded-3xl text-center"
+                className="glass-effect card p-6 sm:p-12 rounded-3xl text-center"
               >
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold gradient-text mb-4 sm:mb-6">
                   Ready to Get Started?
                 </h3>
-                <p className="text-base sm:text-lg text-slate-600 leading-relaxed mb-4 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto px-2">
+                <p className="text-base sm:text-lg text-slate-600 leading-loose mb-4 sm:mb-8 max-w-xl sm:max-w-2xl mx-auto px-4 sm:px-6">
                   Contact us today for a free consultation and discover how we can transform 
                   your communication infrastructure with our premium solutions.
                 </p>

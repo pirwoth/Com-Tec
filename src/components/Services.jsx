@@ -25,13 +25,6 @@ const Services = () => {
       color: 'from-emerald-500 to-teal-600'
     },
     {
-      icon: <Network className="w-12 h-12" />,
-      title: 'Data Networks',
-      description: 'Professional network infrastructure and data communication',
-      features: ['Wide Area Networks', 'Multi-station Institution Networks', 'Wireless Voice & Data Links', 'Network Infrastructure Setup'],
-      color: 'from-purple-500 to-indigo-600'
-    },
-    {
       icon: <Radio className="w-12 h-12" />,
       title: 'Alarm Systems',
       description: 'Advanced fire alarm and security alert systems',
@@ -94,18 +87,18 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: index * 0.1 }}
                 className="group relative flex flex-col items-center text-center"
               >
-                <div className="glass-effect p-4 sm:p-8 rounded-3xl hover-lift h-full flex flex-col items-center text-center">
+                <div className="glass-effect card p-5 sm:p-8 rounded-3xl hover-lift h-full flex flex-col items-center text-center">
                   {/* Icon with gradient background */}
                   <div className={`w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-r ${service.color} p-3 sm:p-4 mb-4 sm:mb-6 text-white group-hover:scale-110 transition-transform duration-300 flex items-center justify-center mx-auto`}>
                     {service.icon}
                   </div>
                   
                   <h3 className="text-lg sm:text-2xl font-bold text-slate-800 mb-2 sm:mb-4">{service.title}</h3>
-                  <p className="text-xs sm:text-base text-slate-600 mb-4 sm:mb-6 leading-relaxed">{service.description}</p>
+                  <p className="text-xs sm:text-base text-slate-600 mb-4 sm:mb-6 leading-loose px-3 sm:px-4">{service.description}</p>
                   
                   <ul className="space-y-2 sm:space-y-3 flex flex-col items-center w-fit mx-auto">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center justify-start w-full text-xs sm:text-sm text-slate-600">
+                      <li key={idx} className="flex items-center justify-start w-full text-xs sm:text-sm text-slate-600 leading-loose px-2 sm:px-3">
                         <div className="w-2 h-2 bg-navy-400 rounded-full mr-2 sm:mr-3 flex-shrink-0"></div>
                         {feature}
                       </li>
@@ -134,13 +127,13 @@ const Services = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                  className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift text-center group"
+                  className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift text-center group"
                   whileHover={{ scale: 1.05 }}
                 >
                   <h4 className="text-base sm:text-xl font-bold text-navy-600 mb-1 sm:mb-2 group-hover:text-navy-700 transition-colors">
                     {brand.name}
                   </h4>
-                  <p className="text-xs sm:text-sm text-slate-600">{brand.description}</p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-loose px-2 sm:px-3">{brand.description}</p>
                 </motion.div>
               ))}
             </div>

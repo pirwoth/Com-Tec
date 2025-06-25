@@ -124,14 +124,8 @@ const Projects = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -30 }}
                   transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift group relative overflow-hidden"
+                  className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift group relative overflow-hidden"
                 >
-                  {project.featured && (
-                    <div className="absolute top-16 sm:top-10 right-12 sm:right-4 z-12">
-                      <Star className="w-5 h-5 text-gold-500 fill-current" />
-                    </div>
-                  )}
-                  
                   <div className="flex items-start space-x-2 sm:space-x-3 mb-2 sm:mb-4">
                     <div className="flex-shrink-0">
                       <Building className="w-6 h-6 text-navy-600" />
@@ -147,6 +141,12 @@ const Projects = () => {
                     <MapPin className="w-4 h-4 text-slate-400" />
                     <span className="text-xs sm:text-sm text-slate-500">{project.category}</span>
                   </div>
+
+                  {project.featured && (
+                    <div className="flex items-center justify-center w-full mb-2">
+                      <Star className="w-5 h-5 text-gold-500 fill-current" />
+                    </div>
+                  )}
                   
                   <div className={`inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getSolutionColor(project.solution)}`}>
                     <CheckCircle className="w-3 h-3 mr-1" />

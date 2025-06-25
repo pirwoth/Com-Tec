@@ -144,7 +144,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.6 + index * 0.1 }}
-                    className="glass-effect p-4 sm:p-6 rounded-2xl hover-lift group mb-4 sm:mb-0 flex flex-col items-center text-center w-full"
+                    className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift group mb-4 sm:mb-0 flex flex-col items-center text-center w-full"
                     whileHover={{ scale: 1.02 }}
                  >
                     <div className="text-navy-600 mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
