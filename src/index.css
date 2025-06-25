@@ -12,8 +12,6 @@
     background: linear-gradient(135deg, #e5e7eb 0%, #677592 100%);
     color: #677592; /* text-slate-900 */
     overflow-x: hidden;
-    width: 100vw;
-    max-width: 100vw;
   }
   
   /* Add top padding for mobile to prevent navbar overlap */
@@ -22,16 +20,17 @@
       padding-top: 4.5rem;
       min-height: 100vh;
       box-sizing: border-box;
-      width: 100vw;
-      max-width: 100vw;
+      width: 100%;
+      max-width: 100%;
       margin: 0;
+      overflow-x: hidden;
     }
   }
 }
 
 @layer components {
   .glass-effect {
-    @apply bg-white/80 backdrop-blur-md border border-white/20;
+    @apply backdrop-blur-md rounded-2xl;
   }
   
   .gradient-text {
@@ -44,6 +43,14 @@
   
   .section-padding {
     @apply py-8 sm:py-12 md:py-20 lg:py-32;
+  }
+  
+  .glass-effect, .box, .card, .container {
+    @apply rounded-2xl;
+  }
+
+  .card {
+    @apply bg-white;
   }
 }
 
@@ -76,11 +83,33 @@ img, iframe {
   section, footer, header, nav, main, .glass-effect {
     border-radius: 0 !important;
     box-shadow: none !important;
-    max-width: 100vw !important;
-    width: 100vw !important;
+    max-width: 100% !important;
+    width: 100% !important;
     margin: 0 !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    overflow-x: hidden !important;
+  }
+  /* Make grid and glass-effect children full width on mobile */
+  .grid, .glass-effect {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Utility for full-width boxes and containers on mobile */
+@media (max-width: 767px) {
+  .box, .card, .container, .glass-effect {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 1rem !important; /* Add a nice border radius for mobile */
+    box-shadow: none !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     overflow-x: hidden !important;
   }
 }
