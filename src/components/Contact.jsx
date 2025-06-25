@@ -53,7 +53,7 @@ const Contact = () => {
               Get In Touch
             </h2>
             <p className="text-base sm:text-xl text-slate-600 max-w-2xl sm:max-w-3xl mx-auto leading-loose px-4 sm:px-6">
-              Ready to transform your communication infrastructure? Contact East Africa's leading experts today
+              Ready to transform your communication infrastructure? Contact Uganda's leading experts today
             </p>
           </motion.div>
 
@@ -114,7 +114,7 @@ const Contact = () => {
                 
                 <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-10 mb-6">
                   <motion.a
-                    href="tel:+256414251238"
+                    href="tel:+256200990198"
                     className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-navy-600 text-white rounded-lg font-semibold hover:bg-navy-700 transition-all duration-300 group text-sm sm:text-base"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -124,7 +124,7 @@ const Contact = () => {
                   </motion.a>
                   
                   <motion.a
-                    href="mailto:pirwoth.dev@gmail.com"
+                    href="mailto:comtecuganda@gmail.com"
                     className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-navy-600 text-navy-600 rounded-lg font-semibold hover:bg-navy-600 hover:text-white transition-all duration-300 text-sm sm:text-base"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
