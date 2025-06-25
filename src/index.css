@@ -8,10 +8,19 @@
   }
   
   body {
-    /* Diagonal gradient: light (top left) to dark (bottom right) */
-    background: linear-gradient(135deg, #e5e7eb 0%, #677592 100%);
+    /* Static hexagon background image with reduced opacity using overlay */
+    position: relative;
     color: #677592; /* text-slate-900 */
     overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: -1;
+    background: url('./assets/bg-hexagons.jpg') center center/cover no-repeat;
+    opacity: 0.3; /* Adjust this value for more/less transparency */
+    pointer-events: none;
   }
   
   /* Add top padding for mobile to prevent navbar overlap */

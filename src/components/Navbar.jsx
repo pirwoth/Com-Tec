@@ -73,8 +73,7 @@ const Navbar = () => {
         <div
           className={`pointer-events-auto max-w-7xl w-full sm:w-[97vw] md:w-[92vw] lg:w-[85vw] xl:w-[75vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
             scrolled ? 'py-2' : 'py-3'
-          } px-2 sm:px-4 lg:px-8 flex items-center`}
-          style={{ borderRadius: '0 0 1rem 1rem' }}
+          } px-2 sm:px-4 lg:px-8 flex items-center rounded-b-2xl rounded-t-none`}
         >
           <div className="flex justify-between items-center w-full">
             {/* Logo */}
@@ -133,7 +132,7 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end"
+              className="pointer-events-auto md:hidden fixed right-0 left-0 top-20 z-[9999] flex flex-col items-end"
               style={{ borderRadius: '0 0 1rem 1rem' }}
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}

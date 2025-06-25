@@ -114,48 +114,71 @@ const Projects = () => {
             ))}
           </motion.div>
 
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
-            <AnimatePresence>
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={project.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -30 }}
-                  transition={{ duration: 0.5, delay: index * 0.05 }}
-                  className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift group relative overflow-hidden"
-                >
-                  <div className="flex items-start space-x-2 sm:space-x-3 mb-2 sm:mb-4">
-                    <div className="flex-shrink-0">
-                      <Building className="w-6 h-6 text-navy-600" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="font-bold text-slate-800 group-hover:text-navy-600 transition-colors leading-tight text-sm sm:text-base">
-                        {project.name}
-                      </h3>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center space-x-1 sm:space-x-2 mb-2 sm:mb-4">
-                    <MapPin className="w-4 h-4 text-slate-400" />
-                    <span className="text-xs sm:text-sm text-slate-500">{project.category}</span>
-                  </div>
-
-                  {project.featured && (
-                    <div className="flex items-center justify-center w-full mb-2">
-                      <Star className="w-5 h-5 text-gold-500 fill-current" />
-                    </div>
-                  )}
-                  
-                  <div className={`inline-flex items-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getSolutionColor(project.solution)}`}>
-                    <CheckCircle className="w-3 h-3 mr-1" />
-                    {project.solution}
-                  </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
+          {/* Replace Projects Grid with horizontal infinite scroll marquee using CSS animation */}
+          <style>{`
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@media (max-width: 640px) {
+  .marquee-card {
+    width: 220px !important;
+    min-width: 220px !important;
+    max-width: 220px !important;
+    margin-right: 12px !important;
+  }
+  .marquee-container {
+    height: 220px !important;
+  }
+}
+`}</style>
+<div
+  className="relative w-full overflow-x-auto mb-8 sm:mb-12 marquee-container scrollbar-hide cursor-grab"
+  style={{height: '320px'}}
+  onMouseEnter={e => e.currentTarget.querySelector('.marquee-track').style.animationPlayState = 'paused'}
+  onMouseLeave={e => e.currentTarget.querySelector('.marquee-track').style.animationPlayState = 'running'}
+  onTouchStart={e => e.currentTarget.querySelector('.marquee-track').style.animationPlayState = 'paused'}
+  onTouchEnd={e => e.currentTarget.querySelector('.marquee-track').style.animationPlayState = 'running'}
+>
+  <div
+    className="flex items-stretch gap-4 sm:gap-6 w-max marquee-track"
+    style={{
+      whiteSpace: 'nowrap',
+      willChange: 'transform',
+      animation: 'marquee 40s linear infinite',
+    }}
+  >
+    {[...filteredProjects, ...filteredProjects].map((project, index) => (
+      <div
+        key={project.id + '-' + index}
+        className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift group relative overflow-hidden flex-shrink-0 marquee-card flex flex-col items-center"
+        style={{ width: '300px', minWidth: '300px', maxWidth: '300px', marginRight: '24px' }}
+      >
+        <div className="flex flex-col items-center w-full mb-2 sm:mb-4">
+          <div className="flex-shrink-0 mb-2">
+            <Building className="w-6 h-6 text-navy-600" />
           </div>
+          <h3 className="font-bold text-slate-800 group-hover:text-navy-600 transition-colors leading-tight text-center text-sm sm:text-base">
+            {project.name}
+          </h3>
+        </div>
+        <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-2 sm:mb-4">
+          <MapPin className="w-4 h-4 text-slate-400" />
+          <span className="text-xs sm:text-sm text-slate-500">{project.category}</span>
+        </div>
+        {project.featured && (
+          <div className="flex items-center justify-center w-full mb-2">
+            <Star className="w-5 h-5 text-gold-500 fill-current" />
+          </div>
+        )}
+        <div className={`inline-flex items-center justify-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getSolutionColor(project.solution)}`}>
+          <CheckCircle className="w-3 h-3 mr-1" />
+          {project.solution}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
 
           {/* Show More/Less Button */}
           <motion.div
