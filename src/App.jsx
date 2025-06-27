@@ -17,7 +17,7 @@ function App() {
           backgroundImage: "url('/bg-hexagons.jpg')",
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed',
-          opacity: 1
+          opacity: 0.5 // reduced opacity
         }}
         aria-hidden="true"
       />
