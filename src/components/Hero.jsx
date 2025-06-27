@@ -69,7 +69,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-3xl sm:text-5xl lg:text-7xl font-serif font-bold leading-tight"
+                    className="text-3xl sm:text-5xl lg:text-7xl font-[Playfair_Display] font-bold leading-tight"
                   >
                     <span className="gradient-text">Premium</span>
                     <br />
@@ -141,17 +141,19 @@ const Hero = () => {
                 {features.map((feature, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.6 + index * 0.1 }}
-                    className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift group mb-4 sm:mb-0 flex flex-col items-center text-center w-full"
-                    whileHover={{ scale: 1.02 }}
-                 >
-                    <div className="text-navy-600 mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
-                      {feature.icon}
+                    initial={{ opacity: 0, y: 20, scale: 0.92 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ delay: 0.6 + index * 0.12, duration: 0.7, type: 'spring', bounce: 0.18 }}
+                    className="relative flex flex-col items-center text-center w-full"
+                  >
+                    <div className="glass-effect card p-4 sm:p-6 rounded-2xl group mb-4 sm:mb-0 flex flex-col items-center text-center w-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.045] hover:-translate-y-2 backdrop-blur-md bg-white/60 border border-slate-100"
+                      style={{ boxShadow: '0 8px 32px 0 rgba(31,38,135,0.18)' }}>
+                      <div className="text-navy-600 mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">
+                        {feature.icon}
+                      </div>
+                      <h3 className="font-semibold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base">{feature.title}</h3>
+                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{feature.description}</p>
                     </div>
-                    <h3 className="font-semibold text-slate-800 mb-1 sm:mb-2 text-sm sm:text-base">{feature.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{feature.description}</p>
                   </motion.div>
                 ))}
               </motion.div>
@@ -159,6 +161,17 @@ const Hero = () => {
           </motion.div>
         </div>
       </section>
+      <style>{`
+.glass-effect.card {
+  background: rgba(255,255,255,0.65);
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.10), 0 8px 24px 0 rgba(31,38,135,0.13); /* elevation/depth shadow */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.glass-effect.card:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16), 0 16px 48px 0 rgba(31,38,135,0.18); /* deeper elevation on hover */
+}
+`}</style>
     </>
   )
 }

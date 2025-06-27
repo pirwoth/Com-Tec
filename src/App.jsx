@@ -10,35 +10,18 @@ import Footer from './components/Footer'
 function App() {
   return (
     <>
-      {/* Static SVG Background (fixed, behind everything) */}
-      <svg
-        className="fixed inset-0 w-full h-full -z-50"
-        style={{ pointerEvents: 'none' }}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 900"
-        fill="none"
-      >
-        {/* Alarm Icon */}
-        <g opacity="0.10">
-          <circle cx="300" cy="200" r="60" fill="#ffd700" />
-          <rect x="270" y="230" width="60" height="30" rx="10" fill="#1e293b" />
-          <rect x="285" y="250" width="30" height="10" rx="5" fill="#2563eb" />
-        </g>
-        {/* CCTV Camera Icon */}
-        <g opacity="0.13">
-          <rect x="1100" y="120" width="120" height="40" rx="15" fill="#1e293b" />
-          <rect x="1210" y="135" width="30" height="10" rx="5" fill="#ffd700" />
-          <circle cx="1120" cy="140" r="12" fill="#2563eb" />
-          <rect x="1150" y="160" width="40" height="10" rx="5" fill="#2563eb" />
-        </g>
-        {/* Telecommunication Antenna Icon */}
-        <g opacity="0.12">
-          <rect x="700" y="600" width="20" height="80" rx="8" fill="#2563eb" />
-          <circle cx="710" cy="600" r="18" fill="#ffd700" />
-          <path d="M710 600 Q 730 570 760 600" stroke="#1e293b" strokeWidth="6" fill="none" />
-          <path d="M710 600 Q 690 570 660 600" stroke="#1e293b" strokeWidth="6" fill="none" />
-        </g>
-      </svg>
+      {/* Hexagon background image */}
+      <div
+        className="fixed inset-0 w-full h-full -z-50 bg-repeat bg-center"
+        style={{
+          backgroundImage: "url('/src/assets/bg-hexagons.jpg')",
+          backgroundSize: 'cover',
+          backgroundAttachment: 'fixed',
+          opacity: 1
+        }}
+        aria-hidden="true"
+      />
+  
       <div className="min-h-screen">
         <Navbar />
         <Hero />

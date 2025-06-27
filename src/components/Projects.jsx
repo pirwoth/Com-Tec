@@ -20,7 +20,7 @@ const Projects = () => {
     { id: 5, name: 'SSDDR HEAD QUARTERS (Juba)', solution: 'VOICE, DATA & CCTV', category: 'Government', featured: true },
     { id: 6, name: 'ST JOSEPH NAGGALAMA', solution: 'TELEPHONE', category: 'Education', featured: false },
     { id: 7, name: 'ST. SAVIO JUNIOR SCHOOL KISUBI', solution: 'CCTV', category: 'Education', featured: false },
-    { id: 8, name: 'MED OPTICS', solution: 'COUNTRY WIDE CCTV INTEGRATION', category: 'Healthcare', featured: true },
+    { id: 8, name: 'MED OPTICS', solution: 'CCTV INTEGRATION', category: 'Healthcare', featured: true },
     { id: 9, name: 'PRIME MINISTER OFFICE ADJUMAN', solution: 'VOICE, DATA & CCTV', category: 'Government', featured: true },
     { id: 10, name: 'WEST CLIFF HOTEL LIRA', solution: 'VOICE, DATA & CCTV', category: 'Hospitality', featured: false },
     { id: 11, name: 'RAINA HOTEL FORT PORTAL', solution: 'VOICE, DATA & CCTV', category: 'Hospitality', featured: false },
@@ -70,7 +70,7 @@ const Projects = () => {
   }
 
   return (
-    <section id="projects" className="section-padding bg-gradient-to-br">
+    <section id="projects" className="pt-24 section-padding bg-gradient-to-br">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -131,6 +131,15 @@ const Projects = () => {
     height: 220px !important;
   }
 }
+.glass-effect.card {
+  background: rgba(255,255,255,0.65);
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.10), 0 8px 24px 0 rgba(31,38,135,0.13); /* elevation/depth shadow */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.glass-effect.card:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16), 0 16px 48px 0 rgba(31,38,135,0.18); /* deeper elevation on hover */
+}
 `}</style>
 <div
   className="relative w-full overflow-x-auto mb-8 sm:mb-12 marquee-container scrollbar-hide cursor-grab"
@@ -151,27 +160,29 @@ const Projects = () => {
     {[...filteredProjects, ...filteredProjects].map((project, index) => (
       <div
         key={project.id + '-' + index}
-        className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift group relative overflow-hidden flex-shrink-0 marquee-card flex flex-col items-center"
-        style={{ width: '300px', minWidth: '300px', maxWidth: '300px', marginRight: '24px' }}
+        className="glass-effect card p-4 sm:p-6 rounded-2xl group relative overflow-hidden flex-shrink-0 marquee-card flex flex-col items-center transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.045] hover:-translate-y-2 backdrop-blur-md bg-white/60 border border-slate-100"
+        style={{ width: '300px', minWidth: '300px', maxWidth: '300px', marginRight: '24px', boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)' }}
       >
         <div className="flex flex-col items-center w-full mb-2 sm:mb-4">
           <div className="flex-shrink-0 mb-2">
             <Building className="w-6 h-6 text-navy-600" />
           </div>
-          <h3 className="font-bold text-slate-800 group-hover:text-navy-600 transition-colors leading-tight text-center text-sm sm:text-base">
+          <h3 className="font-bold text-slate-800 group-hover:text-navy-600 transition-colors leading-tight text-center text-sm sm:text-base break-words whitespace-pre-line max-w-full min-h-[2.5em]">
             {project.name}
           </h3>
         </div>
         <div className="flex items-center justify-center space-x-1 sm:space-x-2 mb-2 sm:mb-4">
           <MapPin className="w-4 h-4 text-slate-400" />
-          <span className="text-xs sm:text-sm text-slate-500">{project.category}</span>
+          <span className="text-xs sm:text-sm text-slate-500 break-words max-w-full">
+            {project.category}
+          </span>
         </div>
         {project.featured && (
           <div className="flex items-center justify-center w-full mb-2">
             <Star className="w-5 h-5 text-gold-500 fill-current" />
           </div>
         )}
-        <div className={`inline-flex items-center justify-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getSolutionColor(project.solution)}`}>
+        <div className={`inline-flex items-center justify-center px-2 sm:px-3 py-1 rounded-full text-xs font-medium ${getSolutionColor(project.solution)} break-words max-w-full`} style={{textAlign: 'center'}}>
           <CheckCircle className="w-3 h-3 mr-1" />
           {project.solution}
         </div>

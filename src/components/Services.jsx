@@ -55,7 +55,7 @@ const Services = () => {
   ]
 
   return (
-    <section id="services" className="section-padding bg-gradient-to-br ">
+    <section id="services" className="pt-24 section-padding bg-gradient-to-br ">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -82,20 +82,18 @@ const Services = () => {
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 50 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
+                initial={{ opacity: 0, y: 50, scale: 0.92 }}
+                animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="group relative flex flex-col items-center text-center"
+                className="group relative flex flex-col items-center text-center w-full"
               >
-                <div className="glass-effect card p-5 sm:p-8 rounded-3xl hover-lift h-full flex flex-col items-center text-center">
-                  {/* Icon with gradient background */}
+                <div className="glass-effect card p-5 sm:p-8 rounded-3xl h-full flex flex-col items-center text-center w-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.045] hover:-translate-y-2 backdrop-blur-md bg-white/60 border border-slate-100"
+                  style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)' }}>
                   <div className={`w-14 h-14 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-r ${service.color} p-3 sm:p-4 mb-4 sm:mb-6 text-white group-hover:scale-110 transition-transform duration-300 flex items-center justify-center mx-auto`}>
                     {service.icon}
                   </div>
-                  
                   <h3 className="text-lg sm:text-2xl font-bold text-slate-800 mb-2 sm:mb-4">{service.title}</h3>
                   <p className="text-xs sm:text-base text-slate-600 mb-4 sm:mb-6 leading-loose px-3 sm:px-4">{service.description}</p>
-                  
                   <ul className="space-y-2 sm:space-y-3 flex flex-col items-center w-fit mx-auto">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="flex items-center justify-start w-full text-xs sm:text-sm text-slate-600 leading-loose px-2 sm:px-3">
@@ -119,7 +117,6 @@ const Services = () => {
             <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-800 mb-8 sm:mb-12">
               Trusted Global Partners
             </h3>
-            
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
               {brands.map((brand, index) => (
                 <motion.div
@@ -127,19 +124,33 @@ const Services = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                  className="glass-effect card p-4 sm:p-6 rounded-2xl hover-lift text-center group"
+                  className="relative group text-center flex flex-col items-center"
                   whileHover={{ scale: 1.05 }}
                 >
-                  <h4 className="text-base sm:text-xl font-bold text-navy-600 mb-1 sm:mb-2 group-hover:text-navy-700 transition-colors">
-                    {brand.name}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-loose px-2 sm:px-3">{brand.description}</p>
+                  <div className="glass-effect card p-4 sm:p-6 rounded-2xl text-center group w-full transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-[1.045] hover:-translate-y-2 backdrop-blur-md bg-white/60 border border-slate-100"
+                    style={{ boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)' }}>
+                    <h4 className="text-base sm:text-xl font-bold text-navy-600 mb-1 sm:mb-2 group-hover:text-navy-700 transition-colors">
+                      {brand.name}
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-loose px-2 sm:px-3">{brand.description}</p>
+                  </div>
                 </motion.div>
               ))}
             </div>
           </motion.div>
         </div>
       </motion.div>
+      <style>{`
+.glass-effect.card {
+  background: rgba(255,255,255,0.65);
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.10), 0 8px 24px 0 rgba(31,38,135,0.13); /* elevation/depth shadow */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.glass-effect.card:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16), 0 16px 48px 0 rgba(31,38,135,0.18); /* deeper elevation on hover */
+}
+`}</style>
     </section>
   )
 }

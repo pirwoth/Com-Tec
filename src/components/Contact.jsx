@@ -35,7 +35,7 @@ const Contact = () => {
   ]
 
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br">
+    <section id="contact" className="pt-24 section-padding bg-gradient-to-br">
       <motion.div
         initial={{ opacity: 0, y: 60 }}
         animate={{ opacity: 1, y: 0 }}
@@ -65,7 +65,9 @@ const Contact = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="flex flex-col justify-center"
             >
-              <div className="glass-effect p-4 sm:p-8 rounded-3xl h-full flex flex-col justify-center items-center text-center">
+              <div className="glass-effect card p-6 sm:p-12 rounded-3xl shadow-xl border border-slate-100 w-full text-center"
+                style={{ boxShadow: '4px 8px 18px 0 rgba(31,38,135,0.10)' }}
+              >
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold text-slate-800 mb-4 sm:mb-8">
                   Contact Information
                 </h3>
@@ -76,7 +78,7 @@ const Contact = () => {
                       initial={{ opacity: 0, y: 20 }}
                       animate={inView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                      className="flex flex-col items-center space-y-2 sm:space-y-3 p-2 sm:p-4 bg-white card rounded-2xl hover-lift text-center"
+                      className="flex flex-col items-center space-y-2 sm:space-y-3 p-2 sm:p-4 rounded-2xl text-center"
                     >
                       <div className="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-navy-100 rounded-xl flex items-center justify-center text-navy-600 mx-auto">
                         {info.icon}
@@ -102,7 +104,8 @@ const Contact = () => {
                 initial={{ opacity: 0, y: 50 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="glass-effect card p-6 sm:p-12 rounded-3xl text-center"
+                className="glass-effect card p-6 sm:p-12 rounded-3xl text-center shadow-xl bg-white/60 border border-slate-100"
+                style={{ boxShadow: '4px 8px 18px 0 rgba(31,38,135,0.10)' }}
               >
                 <h3 className="text-2xl sm:text-3xl font-serif font-bold gradient-text mb-4 sm:mb-6">
                   Ready to Get Started?
@@ -211,6 +214,17 @@ const Contact = () => {
           </div>
         </div>
       </motion.div>
+      <style>{`
+.glass-effect.card {
+  background: rgba(255,255,255,0.65);
+  box-shadow: 0 2px 8px 0 rgba(31,38,135,0.10), 0 8px 24px 0 rgba(31,38,135,0.13); /* elevation/depth shadow */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.glass-effect.card:hover {
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.16), 0 16px 48px 0 rgba(31,38,135,0.18); /* deeper elevation on hover */
+}
+`}</style>
     </section>
   )
 }

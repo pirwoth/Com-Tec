@@ -22,6 +22,8 @@ const Navbar = () => {
     { name: 'Contact', href: '/#contact' },
   ]
 
+  const NAVBAR_HEIGHT = 62; // px, adjust if your navbar is taller on mobile/desktop
+
   // Helper for navigation (works for both hash and normal links)
   const handleNavClick = (e, href) => {
     // For hash links (in-page navigation)
@@ -32,8 +34,8 @@ const Navbar = () => {
         const id = href.replace('/#', '').replace('#', '');
         const el = document.getElementById(id);
         if (el) {
-          // Custom smooth scroll with slower duration
-          const y = el.getBoundingClientRect().top + window.pageYOffset;
+          // Custom smooth scroll with offset for navbar height
+          const y = el.getBoundingClientRect().top + window.pageYOffset - NAVBAR_HEIGHT;
           const startY = window.scrollY;
           const distance = y - startY;
           const duration = 900; // ms, slower than default
@@ -71,19 +73,19 @@ const Navbar = () => {
         transition={{ type: 'spring', stiffness: 120, damping: 18 }}
       >
         <div
-          className={`pointer-events-auto mx-auto sm:max-w-6xl sm:w-[90vw] md:w-[85vw] lg:w-[75vw] xl:w-[65vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
-            scrolled ? 'py-2' : 'py-3'
+          className={`pointer-events-auto mx-auto w-full sm:max-w-7xl sm:w-[96vw] md:w-[98vw] lg:w-[99vw] xl:w-[99vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
+            scrolled ? 'py-1' : 'py-2'
           } px-2 sm:px-6 lg:px-8 flex items-center rounded-b-xl md:rounded-b-2xl md:rounded-t-none`}
         >
           {/* Flex row: logo (left), nav (center), menu (right) */}
           <div className="w-full flex items-center justify-between">
             {/* Logo: always left */}
             <motion.div
-              className="flex-shrink-0 cursor-pointer flex flex-col items-start pl-2 sm:pl-0"
-              whileHover={{ scale: 1.05 }}
+              className="flex-shrink-0 cursor-pointer flex flex-col items-start pl-2 sm:pl-0 group"
+              whileHover={{}}
               onClick={() => window.location.href = '/'}
             >
-              <h1 className="text-3xl font-bold font-serif gradient-text leading-tight">Com-Tec</h1>
+              <h1 className="text-3xl font-bold font-[Montserrat] leading-tight text-blue-700 group-hover:text-blue-900 transition-colors duration-700">Com-Tec</h1>
               <h2 className="text-xs text-slate-600 font-medium tracking-wider mt-1 self-center">(U) LTD</h2>
             </motion.div>
             {/* Desktop Navigation (centered on desktop only) */}
@@ -128,21 +130,22 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end "
+              className="pointer-events-auto md:hidden fixed right-0 z-[9999] flex flex-col items-end w-full"
+              style={{ top: '74px' }} // NAVBAR_HEIGHT
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.5, type: 'spring', bounce: 0.18 }}
             >
-              <nav className="flex flex-col space-y-2 items-end py-2 px-2 w-full rounded-b-xl shadow-lg bg-white">
+              <nav className="pt-8 mt-0 mr-2 sm:mr-6 bg-white/60 backdrop-blur-lg rounded-l-2xl shadow-2xl pb-4 px-0 w-40 max-w-[80vw] flex flex-col items-stretch border border-slate-200" style={{opacity:0.92}}>
                 {navItems.map((item, idx) => (
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="bg-white text-navy-700 hover:bg-navy-50 hover:text-navy-900 px-5 py-3 text-lg font-semibold transition-all duration-300 rounded-2xl shadow-md mb-1 text-right border border-slate-200"
-                    style={{ minWidth: '10rem', maxWidth: '14rem', boxShadow: '0 4px 16px rgba(30,41,59,0.07)' }}
+                    className="text-navy-700 hover:text-navy-900 text-base font-semibold transition-all duration-200 px-6 py-3 text-right border-b border-slate-100 last:border-b-0 focus:bg-navy-50 focus:text-navy-900 outline-none"
+                    style={{borderRadius: 0, background: 'transparent', boxShadow: 'none'}}
                     onClick={e => handleNavClick(e, item.href)}
-                    whileHover={{ scale: 1.07, x: 0 }}
+                    whileHover={{ scale: 1.04, x: 6 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 18 }}
                   >
                     {item.name}
