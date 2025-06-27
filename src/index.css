@@ -39,7 +39,7 @@
 
 @layer components {
   .glass-effect {
-    @apply backdrop-blur-md rounded-2xl;
+    @apply backdrop-blur-md; /* removed rounded-2xl */
   }
   
   .gradient-text {
@@ -55,7 +55,7 @@
   }
   
   .glass-effect, .box, .card, .container {
-    @apply rounded-2xl;
+    /* removed rounded-2xl here as well */
   }
 
   .card {
@@ -106,19 +106,41 @@ img, iframe {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+  /* Remove border-radius for navbar and mobile menu only */
+  nav, .glass-effect {
+    border-radius: 0 !important;
+  }
 }
 
 /* Utility for full-width boxes and containers on mobile */
 @media (max-width: 767px) {
-  .box, .card, .container, .glass-effect {
+  .box, .card, .container {
     width: 100% !important;
     max-width: 100% !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
-    border-radius: 1rem !important; /* Add a nice border radius for mobile */
+    border-radius: 1rem !important;
     box-shadow: none !important;
     padding-left: 0 !important;
     padding-right: 0 !important;
     overflow-x: hidden !important;
+  }
+}
+
+@media (min-width: 768px) {
+  nav.pointer-events-none + div {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 1rem !important;
+    border-bottom-right-radius: 1rem !important;
+  }
+}
+
+@media (max-width: 767px) {
+  nav.pointer-events-none + div {
+    border-top-left-radius: 0 !important;
+    border-top-right-radius: 0 !important;
+    border-bottom-left-radius: 0.75rem !important;
+    border-bottom-right-radius: 0.75rem !important;
   }
 }

@@ -73,22 +73,18 @@ const Navbar = () => {
         <div
           className={`pointer-events-auto mx-auto sm:max-w-6xl sm:w-[90vw] md:w-[85vw] lg:w-[75vw] xl:w-[65vw] shadow-xl bg-white/90 glass-effect border border-slate-200 ${
             scrolled ? 'py-2' : 'py-3'
-          } px-4 sm:px-6 lg:px-8 flex items-center rounded-b-2xl rounded-t-none`}
+          } px-2 sm:px-6 lg:px-8 flex items-center rounded-b-xl md:rounded-b-2xl md:rounded-t-none`}
         >
           {/* Flex row: logo (left), nav (center), menu (right) */}
           <div className="w-full flex items-center justify-between">
             {/* Logo: always left */}
             <motion.div
-              className="flex-shrink-0 cursor-pointer"
+              className="flex-shrink-0 cursor-pointer flex flex-col items-start pl-2 sm:pl-0"
               whileHover={{ scale: 1.05 }}
               onClick={() => window.location.href = '/'}
             >
-              <h1 className="text-2xl lg:text-3xl font-serif font-bold gradient-text">
-                COM-TEC
-              </h1>
-              <p className="text-xs text-slate-600 font-medium tracking-wider">
-                UGANDA LIMITED
-              </p>
+              <h1 className="text-3xl font-bold font-serif gradient-text leading-tight">Com-Tec</h1>
+              <h2 className="text-xs text-slate-600 font-medium tracking-wider mt-1 self-center">(U) LTD</h2>
             </motion.div>
             {/* Desktop Navigation (centered on desktop only) */}
             <div className="hidden md:flex flex-1 justify-center">
@@ -108,7 +104,7 @@ const Navbar = () => {
               </div>
             </div>
             {/* Mobile menu button (right end on mobile only) */}
-            <div className="md:hidden">
+            <div className="md:hidden pr-2">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-slate-700 hover:text-navy-600 p-2 focus:outline-none focus:ring-2 focus:ring-navy-400 rounded"
@@ -132,15 +128,13 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               key="mobile-menu"
-              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end"
-              style={{ borderRadius: '0 0 1rem 1rem', ...(window.innerWidth <= 640 ? { borderTopLeftRadius: 0, borderTopRightRadius: 0 } : {}) }}
+              className="pointer-events-auto md:hidden fixed right-4 top-20 z-[9999] flex flex-col items-end "
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.5, type: 'spring', bounce: 0.18 }}
             >
-              <nav className="flex flex-col space-y-2 items-end py-2 px-2 w-full"
-                style={{ borderRadius: '0 0 1rem 1rem', ...(window.innerWidth <= 640 ? { borderTopLeftRadius: 0, borderTopRightRadius: 0 } : {}) }}>
+              <nav className="flex flex-col space-y-2 items-end py-2 px-2 w-full rounded-b-xl shadow-lg bg-white">
                 {navItems.map((item, idx) => (
                   <motion.a
                     key={item.name}
