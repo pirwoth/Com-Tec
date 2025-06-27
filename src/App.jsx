@@ -14,7 +14,7 @@ function App() {
       <div
         className="fixed inset-0 w-full h-full -z-50 bg-repeat bg-center"
         style={{
-          backgroundImage: "url('/src/assets/bg-hexagons.jpg')",
+          backgroundImage: "url('/bg-hexagons.jpg')",
           backgroundSize: 'cover',
           backgroundAttachment: 'fixed',
           opacity: 1
