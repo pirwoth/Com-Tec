@@ -163,7 +163,7 @@ const Footer = () => {
           >
             <div className="flex flex-col md:flex-row justify-center items-center space-y-2 md:space-y-0">
               <p className="text-navy-300 text-xs sm:text-sm text-center">
-                © 2024 COM-TEC (U) LTD. All rights reserved. | Developed By Pirwoth Samuel & Mukisa Emmanuel
+                &copy; {new Date().getFullYear()} COM-TEC (U) LTD. All rights reserved. | Developed By Pirwoth Samuel & Mukisa Emmanuel
               </p>
             </div>
           </motion.div>
