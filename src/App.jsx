@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import Services from './components/Services'
 import Projects from './components/Projects'
 import About from './components/About'
+import Gallery from './components/Gallery'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 
@@ -21,13 +22,13 @@ function App() {
         }}
         aria-hidden="true"
       />
-  
       <div className="min-h-screen">
         <Navbar />
         <Hero />
         <Services />
         <Projects />
         <About />
+        <Gallery />
         <Contact />
         <Footer />
         {/* Sticky WhatsApp Button */}
@@ -50,7 +51,7 @@ function App() {
         </a>
       </div>
     </>
-  )
+  );
 }
 
 export default App

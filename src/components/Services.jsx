@@ -24,20 +24,20 @@ const Services = () => {
       features: ['IP & Dome Cameras', 'Standalone DVR Systems', 'IR Detectors & Motion Sensors', 'Micro & Mini SD Cameras'],
       color: 'from-emerald-500 to-teal-600'
     },
-    {
-      icon: <Radio className="w-12 h-12" />,
-      title: 'Alarm Systems',
-      description: 'Advanced fire alarm and security alert systems',
-      features: ['GSM & PSTN Line Alarms', 'Analog 2-wire Addressable Fire Alarm', 'Advanced Control Systems', 'Two-Way Radio Systems'],
-      color: 'from-orange-500 to-red-600'
-    },
-    {
-      icon: <Smartphone className="w-12 h-12" />,
-      title: 'Mobile Asset Tracking',
-      description: 'Cutting-edge vehicle tracking and telematics services',
-      features: ['Cmaktech Tracking Devices', 'Fleet Management Systems', 'Stolen Vehicle Recovery', 'Insurance Telematics'],
-      color: 'from-cyan-500 to-blue-600'
-    },
+    // {
+    //   icon: <Radio className="w-12 h-12" />,
+    //   title: 'Alarm Systems',
+    //   description: 'Advanced fire alarm and security alert systems',
+    //   features: ['GSM & PSTN Line Alarms', 'Analog 2-wire Addressable Fire Alarm', 'Advanced Control Systems', 'Two-Way Radio Systems'],
+    //   color: 'from-orange-500 to-red-600'
+    // },
+    // {
+    //   icon: <Smartphone className="w-12 h-12" />,
+    //   title: 'Mobile Asset Tracking',
+    //   description: 'Cutting-edge vehicle tracking and telematics services',
+    //   features: ['Cmaktech Tracking Devices', 'Fleet Management Systems', 'Stolen Vehicle Recovery', 'Insurance Telematics'],
+    //   color: 'from-cyan-500 to-blue-600'
+    // },
     {
       icon: <Camera className="w-12 h-12" />,
       title: 'Maintenance & Support',

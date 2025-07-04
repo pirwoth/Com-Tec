@@ -69,7 +69,7 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-3xl sm:text-5xl lg:text-7xl font-[Playfair_Display] font-bold leading-tight"
+                    className="text-3xl sm:text-5xl lg:text-7xl font-bold leading-tight"
                   >
                     <span className="gradient-text">Premium</span>
                     <br />

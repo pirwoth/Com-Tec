@@ -19,6 +19,7 @@ const Navbar = () => {
     { name: 'Services', href: '/#services' },
     { name: 'Projects', href: '/#projects' },
     { name: 'About', href: '/#about' },
+    { name: 'Gallery', href: '/#gallery' },
     { name: 'Contact', href: '/#contact' },
   ]
 
@@ -81,12 +82,17 @@ const Navbar = () => {
           <div className="w-full flex items-center justify-between">
             {/* Logo: always left */}
             <motion.div
-              className="flex-shrink-0 cursor-pointer flex flex-col items-start pl-2 sm:pl-0 group"
+              className="flex-shrink-0 cursor-pointer flex flex-col items-start -ml-4 sm:-ml-6 group"
               whileHover={{}}
               onClick={() => window.location.href = '/'}
             >
-              <h1 className="text-3xl font-bold font-[Montserrat] leading-tight text-blue-700 group-hover:text-blue-900 transition-colors duration-700">Com-Tec</h1>
-              <h2 className="text-xs text-slate-600 font-medium tracking-wider mt-1 self-center">(U) LTD</h2>
+              <img
+                src="/assets/logo.png"
+                alt="Com-Tec Logo"
+                className="h-20 w-48 mb-1 select-none pointer-events-none drop-shadow-xl"
+                draggable="false"
+                style={{ maxHeight: '88px', maxWidth: '200px', minWidth: '90px', minHeight: '50px', objectFit: 'contain', display: 'block' }}
+              />
             </motion.div>
             {/* Desktop Navigation (centered on desktop only) */}
             <div className="hidden md:flex flex-1 justify-center">
