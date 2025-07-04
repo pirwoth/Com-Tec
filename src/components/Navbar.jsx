@@ -82,7 +82,7 @@ const Navbar = () => {
           <div className="w-full flex items-center justify-between">
             {/* Logo: always left */}
             <motion.div
-              className="flex-shrink-0 cursor-pointer flex flex-col items-start pl-1 sm:pl-0 group"
+              className="flex-shrink-0 cursor-pointer flex flex-col items-start -ml-3 sm:-ml-5 group"
               whileHover={{}}
               onClick={() => window.location.href = '/'}
             >
