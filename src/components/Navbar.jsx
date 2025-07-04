@@ -82,7 +82,7 @@ const Navbar = () => {
           <div className="w-full flex items-center justify-between">
             {/* Logo: always left */}
             <motion.div
-              className="flex-shrink-0 cursor-pointer flex flex-col items-start -ml-4 sm:-ml-6 group"
+              className="flex-shrink-0 cursor-pointer flex flex-col items-start pl-2 sm:pl-0 group"
               whileHover={{}}
               onClick={() => window.location.href = '/'}
             >
@@ -91,7 +91,7 @@ const Navbar = () => {
                 alt="Com-Tec Logo"
                 className="h-20 w-48 mb-1 select-none pointer-events-none drop-shadow-xl"
                 draggable="false"
-                style={{ maxHeight: '88px', maxWidth: '200px', minWidth: '90px', minHeight: '50px', objectFit: 'contain', display: 'block' }}
+                style={{ maxHeight: '66px', maxWidth: '170px', minWidth: '70px', minHeight: '40px', objectFit: 'contain', display: 'block' }}
               />
             </motion.div>
             {/* Desktop Navigation (centered on desktop only) */}
